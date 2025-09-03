@@ -4,7 +4,9 @@ Henrique Martins - RM563620
 Henrique Texeira - RM563088
 *-- -====- --*
 
-TITULO: Escrita personalizada no site FSymbols
+TITULO: Escrita personalizada no site FSymbols.
+OS: Para limpar o terminal e ficar mais limpo o programa.
+RANDOM: Para colocar os navios de forma aleatória.
 '''
 # Importações
 import random
@@ -28,18 +30,22 @@ def jogo_titulo():
 def menu_opcoes():
     while True:
         print(
-            '1. Iniciar Batalha Naval'
+            '1. Iniciar Batalha'
             f'\n2. Como Funciona?'
             f'\n3. Sair'
         )
         try:
             user_opcao = int(input('Escolha uma opção: '))
             if user_opcao < 1 or user_opcao > 3:
+                limpar_terminal()
                 print('❌ Digite apenas números do menu.')
+                voltar_menu()
             else:
                 return user_opcao
         except ValueError:
+            limpar_terminal()
             print('❌ Letras não são permitidas, digite apenas números.')
+            voltar_menu()
 
 def redirecionar_opcao(user_opcao):
     if user_opcao == 1:
@@ -47,7 +53,8 @@ def redirecionar_opcao(user_opcao):
     elif user_opcao == 2:
         funcionamento()
     else:
-        print('Encerrando programa....')
+        print('Encerrando programa..')
+        return None
     
 def criar_tabuleiro():
     '''
@@ -136,7 +143,7 @@ def multiplayer():
     voltar_menu()
 
 def voltar_menu():
-    input('Pressione ENTER para voltar ao menu: ')
+    input('Pressione ENTER para voltar ao menu ')
     limpar_terminal()
     main()
 

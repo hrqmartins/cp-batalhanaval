@@ -1,6 +1,6 @@
 # ⚓ SEIGUN - BATALHA NAVAL 🚢
 
-![Batalha Naval](docs/fluxograma.png)  
+![Battleship GIF](https://media.tenor.com/2vQnQ2rQGzMAAAAC/battleship.gif)
 *Fluxograma do funcionamento do jogo (arquivo disponível na pasta `docs`).*
 
 ---

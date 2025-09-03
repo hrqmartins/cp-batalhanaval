@@ -86,3 +86,19 @@ def posicionar_navios(tabuleiro):
         if tabuleiro[linha][coluna] != 'N':
             tabuleiro[linha][coluna] = 'N'
             navios += 1
+
+def atacar(tabuleiro, linha, coluna):
+    '''
+    Função para atacar uma posição do tabuleiro.
+    '''
+    if tabuleiro[linha][coluna] == 'N':
+        tabuleiro[linha][coluna] = 'X'
+        print("Acertou um navio!")
+        return True
+    elif tabuleiro[linha][coluna] == '~':
+        tabuleiro[linha][coluna] = 'O'
+        print("Água!")
+        return False
+    else:
+        print("Você já atacou essa posição.")
+        return None

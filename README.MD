@@ -23,7 +23,7 @@ O jogo permite que o usuário tente acertar navios escondidos em um tabuleiro 5x
 
 ## 📂 Estrutura de Pastas
 
-``
+```
 CP-BATALHANAVAL/
 │
 ├── docs/
@@ -31,7 +31,7 @@ CP-BATALHANAVAL/
 │ └── documentacao_codigo
 │
 └── batalhanaval.py
-``
+```
 
 ---
 

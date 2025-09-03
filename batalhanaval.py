@@ -74,3 +74,15 @@ def mostrar_tabuleiro(tabuleiro):
                 print(tabuleiro[i][j], end=' ')
         print()
     print()
+    
+def posicionar_navios(tabuleiro):
+    '''
+    Função para posicionar os navios aleatoriamente.
+    '''
+    navios = 0
+    while navios < 3:
+        linha = random.randint(0,4)
+        coluna = random.randint(0,4)
+        if tabuleiro[linha][coluna] != 'N':
+            tabuleiro[linha][coluna] = 'N'
+            navios += 1

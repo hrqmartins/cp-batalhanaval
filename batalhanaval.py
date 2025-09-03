@@ -46,6 +46,7 @@ def redirecionar_opcao(user_opcao):
     if user_opcao == 1:
         pass
     elif user_opcao == 2:
+        limpar_terminal()
         multiplayer()
     elif user_opcao == 3:
         pass
@@ -135,7 +136,13 @@ def multiplayer():
     print(f"Parabéns! Você acertou todos os navios em {tentativas} tentativas.")
     print("Tabuleiro final (navios mostrados):")
     mostrar_tabuleiro(tabuleiro)
-    
+    voltar_menu()
+
+def voltar_menu():
+    input('Pressione ENTER para voltar ao menu: ')
+    limpar_terminal()
+    main()
+
 def main():
     jogo_titulo()
     opcao = menu_opcoes()    

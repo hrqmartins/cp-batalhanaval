@@ -37,5 +37,13 @@ def menu_opcoes():
         except ValueError:
             print('❌ Letras não são permitidas, digite apenas números.')
 
-
+def redirecionar_opcao(user_opcao):
+    if user_opcao == 1:
+        pass
+    elif user_opcao == 2:
+        pass
+    elif user_opcao == 3:
+        pass
+    else:
+        pass
     

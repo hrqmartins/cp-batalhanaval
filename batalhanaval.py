@@ -60,3 +60,17 @@ def criar_tabuleiro():
         tabuleiro.append(linha)
     return tabuleiro
 
+def mostrar_tabuleiro(tabuleiro):
+    '''
+    Função para mostrar o tabuleiro sem revelar os navios
+    '''
+    print("  0 1 2 3 4")
+    for i in range(5):
+        print(i, end=' ')
+        for j in range(5):
+            if tabuleiro[i][j] == 'N':  # esconde navio
+                print('~', end=' ')
+            else:
+                print(tabuleiro[i][j], end=' ')
+        print()
+    print()

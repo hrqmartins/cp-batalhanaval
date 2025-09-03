@@ -24,17 +24,19 @@ def jogo_titulo():
     print('==============================================')
     
 def menu_opcoes():
-    print(
-        '1. Single Player'
-        f'\n2. Multiplayer'
-        f'\n3. Como jogar?'
-        f'\n4. Sair'
-        )
     while True:
+        print(
+            '1. Single Player'
+            f'\n2. Multiplayer'
+            f'\n3. Como jogar?'
+            f'\n4. Sair'
+        )
         try:
             user_opcao = int(input('Escolha uma opção: '))
-            if user_opcao < 0 or user_opcao > 4:
+            if user_opcao < 1 or user_opcao > 4:
                 print('❌ Digite apenas números do menu.')
+            else:
+                return user_opcao
         except ValueError:
             print('❌ Letras não são permitidas, digite apenas números.')
 
@@ -42,7 +44,7 @@ def redirecionar_opcao(user_opcao):
     if user_opcao == 1:
         pass
     elif user_opcao == 2:
-        pass
+        multiplayer()
     elif user_opcao == 3:
         pass
     else:
@@ -102,3 +104,36 @@ def atacar(tabuleiro, linha, coluna):
     else:
         print("Você já atacou essa posição.")
         return None
+
+def multiplayer():
+    tabuleiro = criar_tabuleiro()
+    posicionar_navios(tabuleiro)
+    navios_acertados = 0
+    tentativas = 0
+
+    print("Bem-vindo ao Batalha Naval!")
+    print("Tente acertar os 3 navios escondidos no tabuleiro.")
+
+    while navios_acertados < 3:
+        mostrar_tabuleiro(tabuleiro)
+        try:
+            linha = int(input("Escolha a linha (0-4): "))
+            coluna = int(input("Escolha a coluna (0-4): "))
+            resultado = atacar(tabuleiro, linha, coluna)
+            if resultado != None:
+                tentativas += 1
+                if resultado:
+                    navios_acertados += 1
+        except:
+            print("Entrada inválida. Digite números de 0 a 4.")
+
+    print(f"Parabéns! Você acertou todos os navios em {tentativas} tentativas.")
+    print("Tabuleiro final (navios mostrados):")
+    mostrar_tabuleiro(tabuleiro)
+    
+def main():
+    jogo_titulo()
+    opcao = menu_opcoes()    
+    redirecionar_opcao(opcao)
+    
+main()

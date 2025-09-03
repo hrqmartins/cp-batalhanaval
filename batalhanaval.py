@@ -6,6 +6,7 @@ Henrique Texeira - RM563088
 
 TITULO: Escrita personalizada no site FSymbols
 '''
+import random
 
 def jogo_titulo():
     print('==============================================')

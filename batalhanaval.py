@@ -107,6 +107,9 @@ def atacar(tabuleiro, linha, coluna):
         print("Você já atacou essa posição.")
         return None
 
+def limpar_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 def multiplayer():
     tabuleiro = criar_tabuleiro()
     posicionar_navios(tabuleiro)

@@ -47,4 +47,16 @@ def redirecionar_opcao(user_opcao):
         pass
     else:
         pass
-    
+
+def criar_tabuleiro():
+    '''
+    Função para criar o tabuleiro
+    '''
+    tabuleiro = []
+    for i in range(5):
+        linha = []
+        for j in range(5):
+            linha.append('~')  # Água
+        tabuleiro.append(linha)
+    return tabuleiro
+

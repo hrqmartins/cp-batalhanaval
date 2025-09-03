@@ -1,7 +1,9 @@
-# ⚓ SEIGUN - BATALHA NAVAL 🚢
+<h1 align="center">⚓ SEIGUN - BATALHA NAVAL 🚢</h1>
 
-![Battleship GIF](https://media.tenor.com/2vQnQ2rQGzMAAAAC/battleship.gif)
-*Fluxograma do funcionamento do jogo (arquivo disponível na pasta `docs`).*
+<p align="center">
+  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmFsa3oxZWU5c3k3MHE2aXFsYzZ2cmFnaDkzMGR2aGt6dXAyeTlsMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6xcXIAJNckpcQdcI6l/giphy.gif" alt="Battleship GIF">
+</p>
+
 
 ---
 

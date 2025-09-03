@@ -28,14 +28,13 @@ def jogo_titulo():
 def menu_opcoes():
     while True:
         print(
-            '1. Single Player'
-            f'\n2. Multiplayer'
-            f'\n3. Como jogar?'
-            f'\n4. Sair'
+            '1. Iniciar Batalha Naval'
+            f'\n2. Como Funciona?'
+            f'\n3. Sair'
         )
         try:
             user_opcao = int(input('Escolha uma opção: '))
-            if user_opcao < 1 or user_opcao > 4:
+            if user_opcao < 1 or user_opcao > 3:
                 print('❌ Digite apenas números do menu.')
             else:
                 return user_opcao
@@ -44,15 +43,12 @@ def menu_opcoes():
 
 def redirecionar_opcao(user_opcao):
     if user_opcao == 1:
-        pass
-    elif user_opcao == 2:
-        limpar_terminal()
         multiplayer()
-    elif user_opcao == 3:
-        pass
+    elif user_opcao == 2:
+        funcionamento()
     else:
-        pass
-
+        print('Encerrando programa....')
+    
 def criar_tabuleiro():
     '''
     Função para criar o tabuleiro
@@ -112,6 +108,7 @@ def limpar_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def multiplayer():
+    limpar_terminal()
     tabuleiro = criar_tabuleiro()
     posicionar_navios(tabuleiro)
     navios_acertados = 0
@@ -142,6 +139,33 @@ def voltar_menu():
     input('Pressione ENTER para voltar ao menu: ')
     limpar_terminal()
     main()
+
+def funcionamento():
+    """
+    Mostra todas as instruções de funcionamento do jogo em um único print.
+    """
+    limpar_terminal()
+    print(f'''
+================ FUNCIONAMENTO ================
+
+Como jogar:
+1. O jogo é disputado em um tabuleiro 5x5.
+2. Existem 3 navios escondidos no tabuleiro.
+3. Cada turno você escolhe uma linha e uma coluna para atacar.
+4. Se acertar um navio, ele será marcado com "X".
+5. Se errar, a água será marcada com "O".
+6. Você não pode atacar a mesma posição duas vezes.
+7. O objetivo é acertar todos os navios com o menor número de tentativas.
+
+Dicas:
+- Observe onde você já atacou para não repetir posições.
+- Planeje seus ataques para descobrir os navios rapidamente.
+
+Boa sorte!
+
+===============================================
+''')
+    voltar_menu()
 
 def main():
     jogo_titulo()

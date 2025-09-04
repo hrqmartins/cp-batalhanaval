@@ -8,11 +8,15 @@ TITULO: Escrita personalizada no site FSymbols.
 OS: Para limpar o terminal e ficar mais limpo o programa.
 RANDOM: Para colocar os navios de forma aleatória.
 '''
+
 # Importações
 import random
 import os
 
 def jogo_titulo():
+    ''' 
+    Exibe o titulo do jogo 
+    '''
     print('==============================================')
     print(
         f'''  
@@ -28,6 +32,9 @@ def jogo_titulo():
     print('==============================================')
     
 def menu_opcoes():
+    ''' 
+    Exibe opções do menu com tratamento de erros 
+    '''
     while True:
         print(
             '1. Iniciar Batalha'
@@ -48,8 +55,11 @@ def menu_opcoes():
             voltar_menu()
 
 def redirecionar_opcao(user_opcao):
+    ''' 
+    Leva o usuário para a opção que ele escolheu 
+    '''
     if user_opcao == 1:
-        multiplayer()
+        batalha()
     elif user_opcao == 2:
         funcionamento()
     else:
@@ -73,13 +83,13 @@ def mostrar_tabuleiro(tabuleiro):
     Função para mostrar o tabuleiro sem revelar os navios
     '''
     print("  0 1 2 3 4")
-    for i in range(5):
-        print(i, end=' ')
-        for j in range(5):
-            if tabuleiro[i][j] == 'N':  # esconde navio
+    for x in range(5):
+        print(x, end=' ')
+        for y in range(5):
+            if tabuleiro[x][y] == 'N':  # esconde navio
                 print('~', end=' ')
             else:
-                print(tabuleiro[i][j], end=' ')
+                print(tabuleiro[x][y], end=' ')
         print()
     print()
     
@@ -112,23 +122,34 @@ def atacar(tabuleiro, linha, coluna):
         return None
 
 def limpar_terminal():
+    '''
+    Limpa o terminal
+    '''
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def multiplayer():
+def batalha():
+    '''
+    Inicia a batalha
+    '''
     limpar_terminal()
     tabuleiro = criar_tabuleiro()
     posicionar_navios(tabuleiro)
     navios_acertados = 0
     tentativas = 0
 
-    print("Bem-vindo ao Batalha Naval!")
-    print("Tente acertar os 3 navios escondidos no tabuleiro.")
+    print(f'\n==================================================')
+    print('    Bem-vindo ao Seigun - Batalha Naval!')
+    print('Tente acertar os 3 navios escondidos no tabuleiro.')
+    print('==================================================')
 
     while navios_acertados < 3:
         mostrar_tabuleiro(tabuleiro)
         try:
             linha = int(input("Escolha a linha (0-4): "))
             coluna = int(input("Escolha a coluna (0-4): "))
+            print()
+            print('*-- -=X=- --*')
+            print()
             resultado = atacar(tabuleiro, linha, coluna)
             if resultado != None:
                 tentativas += 1
@@ -138,24 +159,27 @@ def multiplayer():
             print("Entrada inválida. Digite números de 0 a 4.")
 
     print(f"Parabéns! Você acertou todos os navios em {tentativas} tentativas.")
-    print("Tabuleiro final (navios mostrados):")
+    print("Tabuleiro final:")
     mostrar_tabuleiro(tabuleiro)
     voltar_menu()
 
 def voltar_menu():
+    '''
+    Função para voltar ao menu
+    '''
     input('Pressione ENTER para voltar ao menu ')
     limpar_terminal()
     main()
 
 def funcionamento():
-    """
-    Mostra todas as instruções de funcionamento do jogo em um único print.
-    """
+    '''
+    Mostra todas as instruções de funcionamento do jogo.
+    '''
     limpar_terminal()
     print(f'''
-================ FUNCIONAMENTO ================
-
+*-=-=-=-=-=-=-=-=-=- SEIGUN -=-=-=-=-=-=-=-=-=-*
 Como jogar:
+
 1. O jogo é disputado em um tabuleiro 5x5.
 2. Existem 3 navios escondidos no tabuleiro.
 3. Cada turno você escolhe uma linha e uma coluna para atacar.
@@ -169,12 +193,14 @@ Dicas:
 - Planeje seus ataques para descobrir os navios rapidamente.
 
 Boa sorte!
-
-===============================================
+-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=--=-=-=-=-=-
 ''')
     voltar_menu()
 
 def main():
+    '''
+    Função principal do programa
+    '''
     jogo_titulo()
     opcao = menu_opcoes()    
     redirecionar_opcao(opcao)

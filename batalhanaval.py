@@ -129,11 +129,12 @@ def limpar_terminal():
 
 def batalha():
     '''
-    Inicia a batalha
+    Inicia a batalha naval
+    O jogador deve tentar encontrar os 3 navios escondidos no tabuleiro.
     '''
     limpar_terminal()
     tabuleiro = criar_tabuleiro()
-    posicionar_navios(tabuleiro)
+    posicionar_navios(tabuleiro) 
     navios_acertados = 0
     tentativas = 0
 
